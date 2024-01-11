@@ -12,7 +12,7 @@ const VideoPlayback = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoResponse = await axios.get(`${process.env.BASE_URL}/videos/${videoId}`);
+        const videoResponse = await axios.get(`https://vdogallaery-api.onrender.com/api/v1/videos/${videoId}`);
         setVideoUrl(videoResponse.data.video.videoUrl);
         console.log(videoResponse.data.video.videoUrl)
         console.log(videoResponse.data.video.subtitles[0].vttFileUrl);

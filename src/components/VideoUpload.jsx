@@ -6,6 +6,7 @@ import { useDropzone } from 'react-dropzone';
 
 import { toast } from 'react-toastify';
 
+
 const UploadVideo = () => {
   const [title, setTitle] = useState('');
   const [videoFile, setVideoFile] = useState(null);
@@ -42,7 +43,7 @@ const UploadVideo = () => {
       formData.append('title', title);
       formData.append('videoFile', videoFile);
   
-      const response = await axios.post(`${process.env.BASE_URL}/uploadVideo`, formData);
+      const response = await axios.post(`https://vdogallaery-api.onrender.com/api/v1/uploadVideo`, formData);
   
       const newVideoId = response.data.data._id;
   

@@ -28,7 +28,7 @@ const SubtitleAddition = () => {
   const handleAddSubtitle = async () => {
     setLoading(true);
     try {
-      const response=await axios.post(`${process.env.BASE_URL}/${videoId}`, {
+      const response=await axios.post(`https://vdogallaery-api.onrender.com/api/v1/addSubtitle/${videoId}`, {
         text,
         timestamp,
         duration

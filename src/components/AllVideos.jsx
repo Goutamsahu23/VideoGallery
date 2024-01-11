@@ -11,7 +11,7 @@ const AllVideos = () => {
 
   const fetchVideos = async () => {
     try {
-      const response = await axios.get(`${process.env.BASE_URL}/videos`);
+      const response = await axios.get(`https://vdogallaery-api.onrender.com/api/v1/videos`);
       console.log(response)
       setVideos(response.data.videos);
     } catch (error) {
@@ -26,6 +26,8 @@ const AllVideos = () => {
   const filteredVideos = videos.filter((video) =>
     video.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+
 
   return (
     <div className="container mx-auto p-4">
