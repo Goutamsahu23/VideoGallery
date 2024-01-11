@@ -1,5 +1,5 @@
 const Video = require('../models/Video');
-const Subtitle = require('../models/Subtitle');
+const Subtitle = require('../models/SubTitle');
 const cloudinary = require("cloudinary").v2;
 require('dotenv').config();
 
