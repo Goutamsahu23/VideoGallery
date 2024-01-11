@@ -28,7 +28,7 @@ const SubtitleAddition = () => {
   const handleAddSubtitle = async () => {
     setLoading(true);
     try {
-      const response=await axios.post(`http://localhost:4000/api/v1/addSubtitle/${videoId}`, {
+      const response=await axios.post(`${process.env.BASE_URL}/${videoId}`, {
         text,
         timestamp,
         duration

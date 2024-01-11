@@ -12,7 +12,7 @@ const VideoPlayback = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const videoResponse = await axios.get(`http://localhost:4000/api/v1/videos/${videoId}`);
+        const videoResponse = await axios.get(`${process.env.BASE_URL}/videos/${videoId}`);
         setVideoUrl(videoResponse.data.video.videoUrl);
         console.log(videoResponse.data.video.videoUrl)
         console.log(videoResponse.data.video.subtitles[0].vttFileUrl);

@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 const UploadVideo = () => {
   const [title, setTitle] = useState('');
   const [videoFile, setVideoFile] = useState(null);
-  // const [uploadedVideoId, setUploadedVideoId] = useState(null);
+
   const [loading, setLoading] = useState(false);
   const [videoPreview, setVideoPreview] = useState(null);
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const UploadVideo = () => {
       formData.append('title', title);
       formData.append('videoFile', videoFile);
   
-      const response = await axios.post('http://localhost:4000/api/v1/uploadVideo', formData);
+      const response = await axios.post(`${process.env.BASE_URL}/uploadVideo`, formData);
   
       const newVideoId = response.data.data._id;
   
@@ -54,15 +54,13 @@ const UploadVideo = () => {
       console.error('Error uploading video:', error);
   
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
+
         const { success, message } = error.response.data;
         toast.error(message);
       } else if (error.request) {
-        // The request was made but no response was received
+
         toast.error('No response received from the server');
       } else {
-        // Something happened in setting up the request that triggered an Error
         toast.error('An error occurred while uploading the video');
       }
     } finally {

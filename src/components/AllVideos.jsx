@@ -11,7 +11,7 @@ const AllVideos = () => {
 
   const fetchVideos = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/videos');
+      const response = await axios.get(`${process.env.BASE_URL}/videos`);
       console.log(response)
       setVideos(response.data.videos);
     } catch (error) {
